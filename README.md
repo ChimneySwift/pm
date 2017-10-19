@@ -18,4 +18,4 @@ Sets the recipient for messages sent with `.pm`. Player names are case sensitive
 6. You're done!
 
 ## License
-Code: **MIT Lincence**
+Code: **MIT License**
