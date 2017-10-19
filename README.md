@@ -3,11 +3,11 @@ Makes sending PMs in Minetest faster.
 
 ## Commands
 ### pm
-Will send a PM via '/msg' to the recipient selected via '.pm_set'.
+Will send a PM via `/msg` to the recipient selected via `.pm_set`.
 If no arguments are given it will return the current recipient.
 
 ### pm_set
-Sets the recipient for messages sent with '.pm'. Player names are case sensitive
+Sets the recipient for messages sent with `.pm`. Player names are case sensitive
 
 ## How to install
 1. Enter your minetest directory.
