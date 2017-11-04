@@ -5,27 +5,20 @@
 
 local recipient
 
-minetest.register_chatcommand("pm_group", {
-    description = "Sends a pm to a group of players. Input no parameters to check recipients.",
+minetest.register_chatcommand("pm", {
+    description = "Sends a pm to a specified player. Input no parameters to check recipient.",
     func = function(param)
     if param == "" then
-        if recipients[0] == nil then
-            minetest.display_chat_message(minetest.colorize("red", "[PM]") .. " You must first add at least 1 recipient with .pm_add.")
+        if recipient == nil then
+            minetest.display_chat_message(minetest.colorize("red", "[PM]") .. " You must first select a recipient with .pm_set.")
         else
-            local names = ""
-            for _,v in pairs(recipients) do
-                names = names .. v .. ", "
-            end
-            names = names:sub(1, -3)
-            minetest.display_chat_message(minetest.colorize("#00ff00", "[PM]") .. " Recipients: " .. names)
+            minetest.display_chat_message(minetest.colorize("#00ff00", "[PM]") .. " Selected recipient: " .. recipient)
         end
     else
-        if recipients[0] == nil then
-            minetest.display_chat_message(minetest.colorize("red", "[PM]") .. " You must first add at least 1 recipient with .pm_add.")
+        if recipient == nil then
+            minetest.display_chat_message(minetest.colorize("red", "[PM]") .. " You must first select a recipient with .pm_set.")
         else
-            for _,v in pairs(recipients) do
-                minetest.run_server_chatcommand("msg", v .. " " .. param)
-            end
+            minetest.run_server_chatcommand("msg", recipient .. " " .. param)
         end
     end
 end })
