@@ -10,7 +10,11 @@ minetest.register_chatcommand("pm", {
             minetest.display_chat_message(minetest.colorize("#00ff00", "[PM]") .. " Selected recipient: " .. recipient)
         end
     else
-        minetest.run_server_chatcommand("msg", recipient .. " " .. param)
+        if recipient == nil then
+            minetest.display_chat_message(minetest.colorize("red", "[PM]") .. " You must first select a recipient with .pm_set.")
+        else
+            minetest.run_server_chatcommand("msg", recipient .. " " .. param)
+        end
     end
 end })
 
