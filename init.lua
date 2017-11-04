@@ -53,14 +53,14 @@ minetest.register_chatcommand("pm_group", {
             end
             names = names:sub(1, -3)
             if names == "" then
-                minetest.display_chat_message(minetest.colorize("#00ff00", "[PM]") .. " No recipients have been set")
+                minetest.display_chat_message(minetest.colorize("red", "[PM]") .. " No recipients have been set")
             else
                 minetest.display_chat_message(minetest.colorize("#00ff00", "[PM]") .. " Recipients: " .. names)
             end
         end
     else
         if recipients == {} then
-            minetest.display_chat_message(minetest.colorize("red", "[PM]") .. " You must first select a recipient with .pm_set.")
+            minetest.display_chat_message(minetest.colorize("red", "[PM]") .. " You must first select a recipient with .pm_add.")
         else
             for _,v in pairs(recipients) do
                 minetest.run_server_chatcommand("msg", v .. " " .. param)
